@@ -1,0 +1,17 @@
+#!/bin/bash
+rootDir=$(git rev-parse --show-toplevel)
+type=$1
+cd "$rootDir"/.git/objects
+if [ -d "$rootDir"/".git" ];then
+	for file in $(find . -type f )
+	do hash=$(echo "$file"|sed 's|[\./]||g')
+		type_=$(git cat-file -t "$hash")
+		if [ "$type_" = $type ]
+		then 
+			echo $hash
+		fi
+	done
+	exit
+fi
+echo "You're not inside a git repository!"
+
