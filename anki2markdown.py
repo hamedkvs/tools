@@ -1,7 +1,19 @@
-# This tool converts '#' separated anki notes to markeddown notation, so it can be better viewed over browsers
-# in stead of seeing so called ugly gibberish. The filename shall be sent as a command languge argument.
+# This tool converts '#' separated anki notes (i.e each note is put into a line in which the fields are separated by 
+# the character '#'.) to markeddown notation, so it can be better viewed over browsers
+# instead of seeing hard to read text. 
+# 
+# The filename shall be sent to the program as a command line argument.
 # The result would ba a file with an ".md" extension which will reside inside a folder called "github_prett" at the 
 # same location as the initial file.
+#
+# Example of the input file: 
+# input.txt:
+# livre#book#i have a book
+# eau#water#i need some water
+# 
+# Now we try to do the conversion:
+# user@system$ python3 anki2markdown.py input.txt
+#
 import sys
 import os.path
 
