@@ -17,11 +17,11 @@
 import sys
 import os.path
 
-def process(line):
+def process(line,q_prefix):
     #some code
     line = line.replace("<br/>", "\n")
     keyval = line.split("#")
-    question = keyval[0]
+    question = q_prefix+keyval[0]
     answer = keyval[1]
     question = '# '+question
     res = question + '\n'+answer
@@ -44,8 +44,10 @@ def saveToFile(anki_filepath, final_list):
 file=sys.argv[1]
 result=[]
 with open(file, 'r') as f:
+    line_number = 0
     for line in f:
-        result.append(process(line))
+        line_number += 1
+        result.append(process(line,str(line_number)+'. '))
 saveToFile(file, result)
 
     
