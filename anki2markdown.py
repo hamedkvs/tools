@@ -19,6 +19,7 @@ import os.path
 
 def process(line):
     #some code
+    line = line.replace("<br/>", "\n")
     keyval = line.split("#")
     question = keyval[0]
     answer = keyval[1]
