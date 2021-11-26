@@ -1,3 +1,7 @@
+# This tool converts '#' separated anki notes to markeddown notation, so it can be better viewed over browsers
+# in stead of seeing so called ugly gibberish. The filename shall be sent as a command languge argument.
+# The result would ba a file with an ".md" extension which will reside inside a folder called "github_prett" at the 
+# same location as the initial file.
 import sys
 import os.path
 
